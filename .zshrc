@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/adit0078/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set the defaut user for ZSH
 DEFAULT_USER="adit0078"
