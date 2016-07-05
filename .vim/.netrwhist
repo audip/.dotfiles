@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/adit0078/Dev/vagrant-dev/cbs-vagrant/.vagrant/machines/api/virtualbox'
-let g:netrw_dirhist_2='/Users/adit0078/.dotfiles/.oh-my-zsh'
-let g:netrw_dirhist_3='/Users/adit0078/.oh-my-zsh'
