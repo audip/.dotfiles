@@ -2,7 +2,7 @@
 export ZSH=~/.oh-my-zsh
 
 # Set the defaut user for ZSH
-DEFAULT_USER="adit0078"
+DEFAULT_USER="AdityaPurandare"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -85,4 +85,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH="/usr/local/mysql/bin:$PATH"
+#Aliases for brew
+alias brewup='echo "****************************************"; echo -e " Brew Upgrade, Update & Cleanup - Aditya Purandare"; echo "****************************************"; echo ""; brew update && brew upgrade && brew cleanup'
+
+export PATH="/usr/local/mysql/bin:/usr/local/sbin:$PATH"
