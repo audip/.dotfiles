@@ -89,3 +89,5 @@ source $ZSH/oh-my-zsh.sh
 alias brewup='echo "****************************************"; echo -e " Brew Upgrade, Update & Cleanup - Aditya Purandare"; echo "****************************************"; echo ""; brew update && brew upgrade && brew cleanup'
 
 export PATH="/usr/local/mysql/bin:/usr/local/sbin:$PATH"
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

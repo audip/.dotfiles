@@ -9,3 +9,7 @@ My Mac development kit covers vim, zsh, iterm and pathogen.
 3. Create symlinks for files in `~/.dotfiles` folder: `ln  -s source destination` for .zshrc, .vimrc, .vim, .tmux.conf, .zprofile, .profile and oh-my-zsh (~/.oh-my-zsh) 
 4. Install oh-my-zsh & tmux.
 5. Change user to default user in `.dotfiles/.zshrc`
+6. Syntax highlighting: brew install zsh-syntax-highlighting
+
+## References
+https://gist.github.com/kevin-smets/8568070
