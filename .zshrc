@@ -150,6 +150,3 @@ RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# opam configuration
-test -r /Users/apurandare/.opam/opam-init/init.zsh && . /Users/apurandare/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-export PATH="/usr/local/opt/scala@2.12/bin:$PATH"
