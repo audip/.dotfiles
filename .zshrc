@@ -1,14 +1,14 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
+export ZSH=/Users/apurandare/.oh-my-zsh
 
-# Set the defaut user for ZSH
-DEFAULT_USER="AdityaPurandare"
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
+DEFAULT_USER="apurandare"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -52,30 +52,29 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git colored-man-pages)
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Application Support/pinpoint/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -85,9 +84,72 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#Aliases for brew
-alias brewup='echo "****************************************"; echo -e " Brew Upgrade, Update & Cleanup - Aditya Purandare"; echo "****************************************"; echo ""; brew update && brew upgrade && brew cleanup'
 
-export PATH="/usr/local/mysql/bin:/usr/local/sbin:$PATH"
-
+# ZSH syntax & auto-complete
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# ZPrezto https://github.com/sorin-ionescu/prezto
+source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+
+# Kops Kubernetes Settings
+source ~/.kops-k8s.zsh
+source ~/.kops.zsh
+
+source <(kubectl completion zsh)
+# Add kubectl aliases
+source ~/.kubectl_aliases
+
+# Go Path
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+# aliases
+alias brewup="brew update && brew upgrade && brew cu && brew cleanup && mas upgrade"
+alias python='python3'
+alias pip='pip3'
+alias vi='vim'
+alias utc='date -u'
+
+# MySQL conf
+export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl/include"
+
+# Crontabs
+export PATH="$PATH:~/.crontab"
+
+# Remove stale containers
+function rm_containers() {
+    docker ps -a | cut -c 1-12 | sed 1d | while read -r line; do docker rm "$line"; done
+}
+
+# Install kubernetes krew plugin manager
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# Add kubernetes context
+function kubernetes_context() {
+    if [[ -n "$KUBECONFIG" ]]; then
+        CONTEXT="$(kubectl config current-context)"
+        if [[ -n "$CONTEXT" ]]; then
+            echo "[${CONTEXT}]"
+        fi
+    fi
+}
+
+if [[ -n "$($SHELL -c 'echo $ZSH_VERSION')" ]]; then
+    RPROMPT='$(kubernetes_context)'
+fi
+
+# Add ZSH plugin manager
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+autoload -U colors; colors
+source /usr/local/Cellar/zsh-kubectl-prompt/v1.0.1/etc/zsh-kubectl-prompt/kubectl.zsh
+RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# opam configuration
+test -r /Users/apurandare/.opam/opam-init/init.zsh && . /Users/apurandare/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+export PATH="/usr/local/opt/scala@2.12/bin:$PATH"
