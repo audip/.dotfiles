@@ -23,5 +23,12 @@ My Mac development kit covers vim, zsh, iterm and pathogen.
 - [kubernetes-krew](https://github.com/kubernetes-sigs/krew): package manager for kubernetes-cli
 - [kubectl-aliases](https://github.com/ahmetb/kubectl-aliases): programmatically generated handy kubectl aliases
 
+*Productivity*
+- [ripgrep](https://github.com/BurntSushi/ripgrep): more powerful `grep` tool
+
+*Cheat commands*
+- `curl cheat.sh/<unix-tool>`: fetch a help page for a unix tool
+- `curl ifconfig.co`: fetch external IP Address of a computer
+
 ## References
 https://gist.github.com/kevin-smets/8568070
