@@ -27,8 +27,10 @@ My Mac development kit covers vim, zsh, iterm and pathogen.
 - [ripgrep](https://github.com/BurntSushi/ripgrep): more powerful `grep` tool
 
 *Cheat commands*
-- `curl cheat.sh/<unix-tool>`: fetch a help page for a unix tool
-- `curl ifconfig.co`: fetch external IP Address of a computer
+- `curl cheat.sh/<unix-tool>`: get a help page for a unix tool
+- `curl ifconfig.co`: get external IP Address of a computer
+- `uname -a`: get OS information
+- `date -u` : get current UTC time
 
 ## References
 https://gist.github.com/kevin-smets/8568070
