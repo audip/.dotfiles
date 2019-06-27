@@ -13,11 +13,15 @@ My Mac development kit covers vim, zsh, iterm and pathogen.
 
 ## Useful Tools
 
-*Keeping apps up-to-dat*
+*Keeping apps up-to-date*
 - [brew cu](https://github.com/buo/homebrew-cask-upgrade) to auto upgrade all [Brew Cask](https://github.com/Homebrew/homebrew-cask) applications.
 - [mas](https://github.com/mas-cli/mas) to keep Mac App Store apps updated
 - `brewup` to update brew CLI apps, used as an alias: `brew update && brew upgrade && brew cleanup` 
 
+*Kubernetes*
+- [kubernetes-cli](https://kubernetes.io/docs/tasks/tools/install-kubectl): CLI for kubernetes
+- [kubernetes-krew](https://github.com/kubernetes-sigs/krew): package manager for kubernetes-cli
+- [kubectl-aliases](https://github.com/ahmetb/kubectl-aliases): programmatically generated handy kubectl aliases
 
 ## References
 https://gist.github.com/kevin-smets/8568070
