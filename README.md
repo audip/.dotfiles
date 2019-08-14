@@ -32,5 +32,10 @@ My Mac development kit covers vim, zsh, iterm and pathogen.
 - `uname -a`: get OS information
 - `date -u` : get current UTC time
 
+*GPG Commit Signing*
+- Install MacGPG from https://gpgtools.org/
+- `ln -s /usr/local/bin/gpg /usr/local/MacGPG2/bin/gpg`
+- `git config --global gpg.program /usr/local/MacGPG2/bin/gpg`
+
 ## References
 https://gist.github.com/kevin-smets/8568070
