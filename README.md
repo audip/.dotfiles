@@ -10,6 +10,7 @@ My Mac development kit covers vim, zsh, iterm and pathogen.
 4. Install oh-my-zsh & tmux.
 5. Change user to default user in `.dotfiles/.zshrc`
 6. Syntax highlighting: brew install zsh-syntax-highlighting
+7. Install the `powerlevel10k/powerlevel10k` theme as suggested in this blog post: https://blog.larsbehrenberg.com/the-definitive-iterm2-and-oh-my-zsh-setup-on-macos
 
 ## Useful Tools
 
